@@ -101,3 +101,15 @@ La opción `--orden` controla la tabla de pantalla y el CSV. Una consulta por pe
 Este PDF es la **selección previa para pasar a la Fase 2**. La posición depurada calculada supone que todas las personas del PDF siguen aptas y disponibles. No puede incorporar resultados médicos o físicos, renuncias, incidencias ni reposiciones posteriores que no estén incluidas en el documento.
 
 Para respetar la privacidad de los aspirantes, todo el proceso se realiza localmente y no envía el PDF ni los resultados a Internet.
+
+## Pruebas reproducibles
+
+El repositorio no incluye el PDF oficial: contiene identificadores, fechas de nacimiento, puntuaciones y preferencias de personas reales. Redistribuirlo no es necesario para probar el programa.
+
+En su lugar se incluye `tests/fixtures/seleccion_previa_sintetica.pdf`, una muestra con la misma estructura de columnas y datos completamente ficticios. Las pruebas comprueban la extracción, la validación, la adjudicación por preferencias, los puestos depurados y los cortes:
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+GitHub Actions ejecuta estas comprobaciones automáticamente en cada cambio. Para una prueba de integración con una convocatoria concreta, descarga el documento desde su fuente oficial y ejecútalo localmente con los comandos anteriores; el PDF y los resultados quedan excluidos de Git mediante `.gitignore`.

@@ -9,6 +9,9 @@ __pycache__/
 *.xlsx
 *.xls
 
+# Única excepción: fixture sintético, sin datos reales, usado por las pruebas
+!tests/fixtures/seleccion_previa_sintetica.pdf
+
 # Archivos del sistema y editores
 .DS_Store
 Thumbs.db
