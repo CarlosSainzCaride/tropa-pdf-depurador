@@ -1,0 +1,16 @@
+# Entorno y cachés de Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Documentos y resultados con posibles datos personales
+*.pdf
+*.csv
+*.xlsx
+*.xls
+
+# Archivos del sistema y editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
