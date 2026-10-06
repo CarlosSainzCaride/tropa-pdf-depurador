@@ -106,7 +106,9 @@ Para respetar la privacidad de los aspirantes, todo el proceso se realiza localm
 
 El repositorio no incluye el PDF oficial: contiene identificadores, fechas de nacimiento, puntuaciones y preferencias de personas reales. Redistribuirlo no es necesario para probar el programa.
 
-En su lugar se incluye `tests/fixtures/seleccion_previa_sintetica.pdf`, una muestra con la misma estructura de columnas y datos completamente ficticios. Las pruebas comprueban la extracción, la validación, la adjudicación por preferencias, los puestos depurados y los cortes:
+En su lugar se incluye `tests/fixtures/seleccion_previa_sintetica.pdf`, una prueba de carga con la misma estructura de columnas y datos completamente ficticios. Contiene **1.000 aspirantes**, **50 especialidades**, **10 plazas por especialidad** y exactamente **10 preferencias distintas por aspirante**. Las 10.000 filas están repartidas de forma equilibrada: cada especialidad recibe 200 solicitudes y los rankings varían entre códigos para provocar rechazos y reasignaciones en cascada. La simulación llena las 500 plazas y produce adjudicaciones en los diez niveles de preferencia.
+
+Las pruebas comprueban la extracción multipágina, la distribución de preferencias, la validación global, la adjudicación de las 500 plazas, los puestos depurados y los cortes:
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
